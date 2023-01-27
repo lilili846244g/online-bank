@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../style";
 import { logo } from "../assets";
 import { footerLinks, socialMedia } from "../constants";
+import { AiOutlineCopyrightCircle } from "react-icons/ai";
 
 const Footer = () => (
   <section className={`${styles.flexCenter}${styles.paddingY} flex-col`}>
@@ -43,12 +44,28 @@ const Footer = () => (
       </div>
     </div>
 
-    <div>
-      <p className="font-poppins font-normal text-[18px] leading-[27px] text-white ">
-        {" "}
-        Copyright 2021 Hoo Online-bank. All Rights Reserved.
-      </p>
-      <div></div>
+    <div className=" w-full flex justify-between  items-center md:flex-row flex-col pt-6 border-t-[1px] border-t-[#3f3e45]">
+      <div className="flex flex-col items-center  md:items-start ">
+        <p className="font-poppins font-normal text-[18px] leading-[27px] text-white text-center flex flex-row items-center">
+          Copyright <AiOutlineCopyrightCircle /> 2021 Hoo Online-bank.
+        </p>
+        <p className="font-poppins font-normal text-[18px] leading-[27px] text-white  ">
+          All Rights Reserved.
+        </p>
+      </div>
+
+      <div className="flex flex-row  md:mt-0 mt-6 ">
+        {socialMedia.map((social, index) => (
+          <img
+            key={social.id}
+            src={social.icon}
+            alt={social.id}
+            className={`w-[21px] h-[21px] object-contain cursor-pointer  ${
+              index !== socialMedia.length - 1 ? "mr-6 " : "mr-0"
+            }`}
+          />
+        ))}
+      </div>
     </div>
   </section>
 );
